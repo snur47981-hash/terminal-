@@ -1,16 +1,7 @@
 [deploy]
-startCommand = "/bin/bash -c \"/bin/ttyd -p 7681 -c $USERNAME:$PASSWORD /bin/bash\""
+startCommand = "/bin/ttyd -p 7681 -c admin:admin123 /bin/bash"
 numReplicas = 1
 
 [deploy.resources]
-memoryMb = 4096
-vcpus = 4
-
-[deploy.build]
-builder = "paketo"
-buildCommand = "echo 'Building Kali Linux environment...'"
-
-[deploy.healthcheck]
-path = "/"
-interval = 30
-timeout = 10
+memoryMb = 2048
+vcpus = 2
