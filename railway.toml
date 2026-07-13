@@ -3,9 +3,14 @@ startCommand = "/bin/bash -c \"/bin/ttyd -p 7681 -c $USERNAME:$PASSWORD /bin/bas
 numReplicas = 1
 
 [deploy.resources]
-memoryMb = 1024
-vcpus = 2
+memoryMb = 4096
+vcpus = 4
 
-[[volumes]]
-mountPath = "/root"
-name = "kali-data"
+[deploy.build]
+builder = "paketo"
+buildCommand = "echo 'Building Kali Linux environment...'"
+
+[deploy.healthcheck]
+path = "/"
+interval = 30
+timeout = 10
